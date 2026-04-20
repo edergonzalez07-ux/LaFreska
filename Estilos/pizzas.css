@@ -1,0 +1,243 @@
+a.logo {
+    text-decoration: none;
+}
+
+/*ESTILOS EXCLUSIVOS - MENÚ DE PIZZAS*/
+.pagina-menu {
+    background-color: #050505;
+    padding-top: 100px;
+}
+
+.contenedor-menu {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 100px 20px;
+}
+
+.header-menu {
+    text-align: center;
+    margin-bottom: 80px;
+    padding-top: 40px;
+}
+
+.titulo-menu {
+    font-size: clamp(4rem, 10vw, 7rem);
+    color: #e5e5d7;
+    margin-bottom: 10px;
+    line-height: 0.9;
+}
+
+.subtitulo-menu {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem;
+    color: #e6332a;
+    text-transform: uppercase;
+}
+
+.seccion-pizzas {
+    margin-bottom: 80px;
+}
+
+.cabecera-seccion {
+    border-bottom: 3px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cabecera-seccion h2 {
+    font-size: 3rem;
+    color: #e5e5d7;
+    margin: 0;
+}
+
+.cabecera-seccion .titulo-rojo {
+    color: #e6332a;
+}
+
+.cabecera-seccion span {
+    font-family: 'Space Mono', monospace;
+    color: #888;
+    font-weight: bold;
+}
+
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-pizza {
+    background-color: #111;
+    border: 2px solid #222;
+    padding: 30px;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-pizza:hover {
+    transform: translateY(-5px);
+    border-color: #e6332a;
+    background-color: #161616;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background-color: #e6332a;
+    color: #000;
+    font-family: 'Anton', sans-serif;
+    padding: 5px 15px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    box-shadow: 4px 4px 0px rgba(229, 229, 215, 0.2);
+}
+
+.badge-especial {
+    background-color: #e5e5d7;
+    color: #000;
+    box-shadow: 4px 4px 0px rgba(230, 51, 42, 0.5);
+}
+
+.pizza-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.pizza-nombre {
+    font-size: 2.2rem;
+    color: #e5e5d7;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.pizza-precio {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e6332a;
+    white-space: nowrap;
+}
+
+.pizza-ingredientes {
+    font-size: 1.1rem;
+    color: #aaa;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.pizza-alergenos {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #555;
+    text-transform: uppercase;
+    margin: 0;
+    border-top: 1px dashed #333;
+    padding-top: 15px;
+}
+
+/* IMÁGENES DE LAS PIZZAS (EFECTO CÁMARA DE SEGURIDAD)*/
+.pizza-imagen {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 2px solid #333;
+    margin-bottom: 20px;
+    background-color: #1a1a1a;
+    margin-top: 10px;
+}
+
+.pizza-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.2) brightness(0.8);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.tarjeta-pizza:hover .pizza-imagen img {
+    transform: scale(1.05);
+    filter: grayscale(0) contrast(1.1) brightness(1);
+}
+
+/*RESPONSIVE MÓVIL Y TABLET (EL PECADO)*/
+@media (max-width: 768px) {
+    .pagina-menu {
+        padding-top: 80px;
+    }
+    
+    .contenedor-menu {
+        padding: 0 15px 60px 15px;
+    }
+    
+    .header-menu {
+        margin-bottom: 40px;
+        padding-top: 20px;
+    }
+    
+    .cabecera-seccion {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        margin-bottom: 30px;
+    }
+    
+    .cabecera-seccion h2 {
+        font-size: 2.2rem;
+    }
+    
+    .grid-menu {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .tarjeta-pizza {
+        padding: 20px;
+    }
+    
+    .pizza-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .pizza-nombre {
+        font-size: 1.9rem;
+    }
+    
+    .pizza-precio {
+        font-size: 1.3rem;
+    }
+    
+    .badge {
+        font-size: 1rem;
+        padding: 4px 12px;
+        top: -12px;
+        left: 15px;
+    }
+    
+    .pizza-imagen {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 400px) {
+    .titulo-menu {
+        font-size: 3.2rem;
+    }
+    
+    .subtitulo-menu {
+        font-size: 1rem;
+    }
+}
+

@@ -1,0 +1,678 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&family=Space+Mono&display=swap');
+
+
+/*TODA LA PÁGINA*/
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bahnschrift', 'Inter', sans-serif;
+    background-color: #000000;
+    color: #e5e5d7;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/*LA PARTE DEL NAVEGADOR DE ARRIBA*/
+h1, h2, h3, .btn-pecado, .btn-mapa, .logo, .nav-item, .texto-flash {
+    font-family: 'Anton', 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 2px solid #e6332a;
+}
+
+.logo {
+    font-size: 2.2rem;
+    color: #e6332a;
+}
+
+.nav-links a {
+    color: #e5e5d7;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e6332a;
+}
+
+/*PARA LA ANIMACION DEL PRINCIPIO*/
+#pantalla-calenton {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.texto-flash {
+    font-size: 4rem;
+    color: #e5e5d7;
+    animation: parpadeo 0.2s infinite;
+    text-align: center;
+}
+
+@keyframes parpadeo {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+        color: #e6332a;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.subir-telon {
+    transform: translateY(-100%);
+}
+
+/*CONTENIDO PRINCIPAL DE LA PÁGINA*/
+#contenido-web {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#contenido-web.visible {
+    opacity: 1;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/Imagenes/pizza-inicial.png');
+    position: relative;
+    overflow: hidden;
+}
+
+.titular-bestia {
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    line-height: 0.92;
+    margin-bottom: 20px;
+    color: #e5e5d7;
+    z-index: 2;
+    text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.subtitulo {
+    font-family: 'Bahnschrift Semibold', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 35px;
+    color: #e5e5d7;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    max-width: 500px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    z-index: 2;
+}
+
+/*BOTÓN "VER LOS PECADOS*/
+.btn-pecado {
+    background-color: #e6332a;
+    color: #000000;
+    font-size: 2.2rem;
+    padding: 12px 40px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-pecado:hover {
+    background-color: #e5e5d7;
+    animation: glitch 0.3s infinite;
+    box-shadow: 4px 0px #e6332a, -4px 0px #e5e5d7;
+}
+
+@keyframes glitch {
+    0% { transform: translate(2px, 2px); }
+    25% { transform: translate(-2px, -2px); }
+    50% { transform: translate(-2px, 2px); }
+    75% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/*BOTÓN "IR A LA FRESKA"*/
+.btn-secundario {
+    border: 3px solid #e5e5d7;
+    color: #e5e5d7;
+    padding: 3% 25px;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+.btn-secundario:hover {
+    background-color: #e5e5d7;
+    color: #000;
+}
+
+/*CINTA ANIMACION*/
+.cinta-policial {
+    width: 100%;
+    background-color: #e6332a;
+    overflow: hidden;
+    padding: 15px 0;
+    transform: rotate(-2deg);
+    margin: 30px 0;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+    z-index: 10;
+    position: relative;
+    box-shadow: 0px 5px 15px rgba(230, 51, 42, 0.3);
+}
+
+.cinta-texto {
+    display: flex;
+    white-space: nowrap;
+    width: 200%;
+    animation: cinta 15s linear infinite;
+    will-change: transform;
+}
+
+.cinta-texto span {
+    font-size: 3rem;
+    color: #000000;
+    font-family: 'Anton', 'Impact', sans-serif;
+    text-transform: uppercase;
+    padding-right: 20px;
+    letter-spacing: 2px;
+}
+
+@keyframes cinta {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/*CONTADOR DE CALENTURIENTOS*/
+.contador-vicio {
+    padding: 120px 20px;
+    background-color: #e5e5d7;
+    color: #000000;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contador-box h2 {
+    font-size: clamp(6rem, 20vw, 12rem);
+    line-height: 0.8;
+    margin: 0;
+    color: #e6332a;
+    letter-spacing: -1px;
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.1));
+}
+
+.txt-calenturientos {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    margin: 20px 0;
+    line-height: 1;
+    color: #000;
+}
+
+.txt-calenturientos .highlight {
+    background-color: #e6332a;
+    color: #e5e5d7;
+    padding: 5px 15px;
+    display: inline-block;
+    transform: rotate(-1deg);
+}
+
+.contador-vicio .text {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 1.1rem;
+    color: #333;
+    max-width: 400px;
+    margin: 20px auto 0;
+    display: block;
+    line-height: 1.3;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/*MANIFIESTO "NO SOMOS UN ITALIANO..."*/
+.manifiesto {
+    position: relative;
+    padding: 180px 20px;
+    background-color: #000;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manifiesto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/Imagenes/lafreskainicio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: relative;
+    filter: brightness(0.35) grayscale(0.2) contrast(1.1);
+    z-index: 0;
+}
+
+.manifiesto::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%);
+    z-index: 1;
+}
+
+.texto-manifiesto {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.texto-manifiesto h3 {
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    color: #e5e5d7;
+    line-height: 0.95;
+    margin-bottom: 40px;
+    animation: revealUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.texto-manifiesto p {
+    font-family: 'Rockwell', serif;
+    font-size: 1.5rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 15px auto;
+    opacity: 0;
+    animation: revealUp 1s ease-out 0.5s forwards;
+}
+
+.texto-manifiesto .resaltado {
+    color: #e6332a;
+    font-size: 2.5rem;
+    margin-top: 60px;
+    display: block;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: revealUp 1s ease-out 1s forwards;
+}
+
+@keyframes revealUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*PASOS DE ELABORACIÓN*/
+.triptico-elaboracion {
+    padding: 120px 20px;
+    background-color: #e5e5d7;
+    color: #000;
+}
+
+.titulo-crema {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    color: #e6332a;
+    text-align: center;
+    margin-bottom: 60px;
+    line-height: 0.9;
+}
+
+.triptico-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.triptico-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-wrapper {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background-color: #d1d1c4;
+    border: 2px solid #000;
+    position: relative;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.8) contrast(1.2);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.triptico-item:hover .img-wrapper img {
+    transform: scale(1.05);
+    filter: grayscale(0) contrast(1.1);
+}
+
+@media (min-width: 1024px) {
+    .triptico-item.central { transform: translateY(40px); }
+}
+
+.triptico-caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.highlight-cap {
+    color: #e6332a;
+}
+
+/*INSTRUCCIONES*/
+.instrucciones {
+    padding: 100px 20px;
+    background-color: #000;
+    text-align: center;
+}
+
+.titulo-seccion {
+    font-size: 3.5rem;
+    color: #e5e5d7;
+}
+
+.pasos-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    flex-wrap: wrap;
+}
+
+.paso-card {
+    flex: 1;
+    min-width: 280px;
+    background: #111;
+    padding: 40px;
+    border-left: 5px solid #e6332a;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.paso-card:hover {
+    transform: translateY(-10px);
+    background: #1a1a1a;
+}
+
+.paso-numero {
+    font-size: 5rem;
+    color: #e6332a;
+    line-height: 1;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.paso-contenido h3 {
+    font-size: 2.5rem;
+    color: #e5e5d7;
+    margin: 10px 0;
+}
+
+.paso-contenido p {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 1.2rem;
+    color: #999;
+    line-height: 1.4;
+}
+
+/*FOOTER / MAPA*/
+.footer-mapa {
+    padding: 50px 150px 24px;
+    background-color: #000000;
+    text-align: center;
+    border-top: 5px solid #e6332a;
+    margin-bottom: 20px;
+}
+
+.mensaje-reto .cama {
+    font-size: 1.9rem;
+    margin-bottom: 10px; 
+}
+
+.mensaje-reto .destacado {
+    color: #e6332a;
+    font-size: clamp(2.8rem, 9vw, 5.5rem);
+    display: block;
+    margin-top: 0; 
+    margin-bottom: 20px;
+}
+
+.btn-mapa {
+    background-color: #e5e5d7;
+    color: #000000;
+    font-size: 1.8rem;
+    padding: 12px 35px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-mapa:hover {
+    background-color: #e6332a;
+    color: #ffffff;
+}
+
+.mapa-placeholder {
+    margin-top: 30px;
+}
+
+.mapa-placeholder .tit {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.mapa-placeholder .legal {
+    color: #555;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/*RESPONSIVE MÓVIL*/
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        background-attachment: scroll;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-pecado, .btn-secundario {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .triptico-grid {
+        gap: 40px;
+    }
+    
+    .pasos-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .paso-numero {
+        font-size: 4rem;
+    }
+}
+
+/*TRANSICIÓN ENTRE PÁGINAS*/
+#pantalla-transicion {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e6332a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: top 0,4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#pantalla-transicion.bajar-telon {
+    top: 0;
+}
+
+.texto-transicion {
+    font-family: 'Anton', 'Impact', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: latido-horno 0.3s infinite alternate;
+}
+
+@keyframes latido-horno {
+    from {
+        transform: scale(1) rotate(-1deg);
+    }
+    to {
+        transform: scale(1.05) rotate(1deg);
+    }
+}
+
+/*TRANSICIÓN "CERRANDO LA CAJA"*/
+#transicion-caja {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.tapa-izq {
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: 50vw;
+    height: 100vh;
+    background-color: #000000;
+    border-right: 5px solid #e6332a;
+    box-sizing: border-box;
+    transition: left 0.4s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.tapa-der {
+    position: absolute;
+    top: 0;
+    right: -50vw;
+    width: 50vw;
+    height: 100vh;
+    background-color: #000000;
+    border-left: 5px solid #e6332a;
+    box-sizing: border-box;
+    transition: right 0.4s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.texto-impacto {
+    position: relative;
+    z-index: 2;
+    font-family: 'Anton', 'Impact', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #e5e5d7;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.2s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-delay: 0.3s;
+}
+
+#transicion-caja.activado {
+    pointer-events: all;
+}
+
+#transicion-caja.activado .tapa-izq {
+    left: 0;
+}
+
+#transicion-caja.activado .tapa-der {
+    right: 0;
+}
+
+#transicion-caja.activado .texto-impacto {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-sticker {
+    height: 65px; 
+    width: auto;
+    transition: transform 0.3s ease;
+    margin: 5px 10px 2px;
+}
+
+.logo-sticker:hover {
+    transform: scale(1.1) rotate(-2deg);
+}
+

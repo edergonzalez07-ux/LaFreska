@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Freska | De aqui</title>
+    <link rel="icon" type="image/jpeg" href="Fotos de Pizzas Máquina/PHOTO-2026-01-12-11-05-21.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">LA FRESKA</a>
+        <ul class="nav-links">
+            <li><a href="carta.html">LA CARTA</a></li>
+            <li><a href="#branding">VIBE</a></li>
+            <li><a href="#contacto">UBICACIÓN</a></li>
+        </ul>
+    </nav>
+
+    <footer class="footer-fixed">
+        <p>© 2026 LA FRESKA • ESTILO PURO • BILBAO</p>
+    </footer>
+
+    <div class="horizontal-wrapper">
+        
+        <header class="hero">
+            <div class="hero-image">
+                <img src="Fotos de Pizzas Máquina/IMG_9865.JPG" alt="La Vieja Confiable">
+            </div>
+            <div class="hero-content">
+                <h1>LA VIEJA <br><span class="highlight">CONFIABLE</span></h1>
+                <p class="hero-desc">Siempre ahí. Ni te juzga, ni te falla.</p>
+                <div class="hero-buttons">
+                    <a href="carta.html" class="btn-primary large">VER CARTA</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="full-image-section">
+            <div class="side-photo">
+                <img src="CONTENIDO/LA FRESKA FOTOS MEZCLA/6bb1cd22-7008-4fb7-8f46-73e57e9e9773(1).jpg" alt="Pizza Real">
+            </div>
+            <div class="side-text">
+                <h2>PIZZA <br><span class="outline">REAL</span> <br>PARA GENTE <br>REAL.</h2>
+            </div>
+        </section>
+
+        <section id="branding" class="brand-separator">
+            <div class="separator-inner">
+                <span class="label">CONCEPT STORE</span>
+                <div class="separator-logo">LA FRESKA.</div>
+                <span class="label-red">PIZZA & VIBES</span>
+            </div>
+        </section>
+
+        <section id="carta" class="menu-highlights">
+            <div class="menu-header">
+                <h2 class="section-title">LO MÁS <br><span class="highlight">VENDIDO</span></h2>
+            </div>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img src="Fotos de Pizzas Máquina/LLAMADA A TU EX NUEVA .JPG" alt="Llamada de tu ex">
+                    </div>
+                    <div class="card-info">
+                        <h3>LLAMADA DE TU EX</h3>
+                        <span class="price">11.90 €</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img src="Fotos de Pizzas Máquina/PELI Y MANTA NUEVA.JPG" alt="Peli y Manta">
+                    </div>
+                    <div class="card-info">
+                        <h3>PELI Y MANTA</h3>
+                        <span class="price">12.50 €</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image-wrapper">
+                        <img src="Fotos de Pizzas Máquina/MATCH EN TINDER NUEVA.JPG" alt="Match en Tinder">
+                    </div>
+                    <div class="card-info">
+                        <h3>MATCH EN TINDER</h3>
+                        <span class="price">13.00 €</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="spacer-final"></div>
+    </div>
+
+    <script>
+        const scrollContainer = document.querySelector(".horizontal-wrapper");
+        window.addEventListener("wheel", (evt) => {
+            if (window.innerWidth > 768) {
+                evt.preventDefault();
+                scrollContainer.scrollLeft += (evt.deltaY * 1.3);
+            }
+        }, { passive: false });
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&family=Space+Mono&display=swap');
+
+/* =========================================
+   1. GLOBALES
+   ========================================= */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bahnschrift', 'Inter', sans-serif;
+    background-color: #e6332a;
+    color: #e5e5d7;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, .nav-item, .texto-flash {
+    font-family: 'Anton', 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: rgba(230, 51, 42, 0.9);
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 4px solid #e5e5d7; 
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-sticker {
+    height: 65px; 
+    width: auto;
+    transition: transform 0.3s ease;
+    margin: 5px 10px 2px;
+}
+
+.logo-sticker:hover {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #e5e5d7;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 5px 10px;
+}
+
+.nav-links a:hover {
+    background-color: #e5e5d7;
+    color: #e6332a;
+}
+
+
+/* =========================================
+   4. HERO NOSOTROS
+   ========================================= */
+.hero-nosotros {
+    min-height: 80vh; /* Un poco más corto que el inicio para que se vea la historia */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 140px 20px 40px;
+    background: linear-gradient(rgba(230, 51, 42, 0.8), rgba(230, 51, 42, 0.95)), url('/LaFreska/Imagenes/lafreskainicio.jpg'); /* Puedes poner otra foto de fondo aquí */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom: 4px solid #e5e5d7;
+}
+
+.titular-bestia {
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    line-height: 0.92;
+    margin-bottom: 20px;
+    color: #e5e5d7;
+    z-index: 2;
+    text-shadow: 4px 4px 0px #e6332a;
+}
+
+.subtitulo {
+    font-family: 'Bahnschrift Semibold', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 35px;
+    color: #e5e5d7;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    max-width: 600px;
+}
+
+/* =========================================
+   5. EL MANIFIESTO
+   ========================================= */
+.historia-corta {
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #e6332a;
+}
+
+.bloque-manifiesto {
+    max-width: 900px;
+    background-color: #e5e5d7; /* Tarjeta Crema */
+    color: #e6332a; /* Texto Rojo */
+    padding: 50px;
+    border: 4px solid #e5e5d7;
+    text-align: left;
+    box-shadow: 15px 15px 0px rgba(0,0,0,0.15); /* Sombra pesada */
+}
+
+.bloque-manifiesto h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 0 0 20px 0;
+    line-height: 1;
+}
+
+.bloque-manifiesto p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    font-family: 'Bahnschrift', sans-serif;
+    margin: 0;
+}
+
+/* =========================================
+   6. FICHA ÚNICA DE CREADORES (LOS PRIMOS)
+   ========================================= */
+.seccion-creadores {
+    padding: 20px 20px 120px;
+    background-color: #e6332a;
+}
+
+.creadores-unico-bloque {
+    background-color: #e6332a;
+    border: 4px solid #e5e5d7;
+    width: 100%;
+    max-width: 1000px; /* Más ancho para la vista de ordenador */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row; /* Pone foto y texto lado a lado en PC */
+    transition: transform 0.3s ease;
+}
+
+.creadores-unico-bloque:hover {
+    transform: translateY(-10px);
+}
+
+.creador-img {
+    flex: 1; /* Ocupa la mitad de la tarjeta */
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-right: 4px solid #e5e5d7; /* Separador vertical */
+    background-color: #e5e5d7;
+}
+
+.creador-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.2); /* B/N Estilo cámara */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Al pasar el ratón se colorean con el tono rojo */
+.creadores-unico-bloque:hover .creador-img img {
+    transform: scale(1.05);
+    filter: grayscale(0) sepia(1) hue-rotate(-50deg) saturate(5); 
+}
+
+.creador-info {
+    flex: 1; /* Ocupa la otra mitad */
+    padding: 50px;
+    background-color: #e5e5d7; /* Fondo Crema */
+    color: #e6332a; /* Texto Rojo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.creador-nombre {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    margin: 0 0 5px 0;
+    line-height: 1;
+}
+
+.creador-rol {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    border-bottom: 2px dashed #e6332a;
+    padding-bottom: 10px;
+    display: inline-block;
+    align-self: flex-start; /* Para que la línea discontinua no ocupe todo el ancho */
+}
+
+.creador-bio {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: 'Bahnschrift', sans-serif;
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    /* En móviles, la tarjeta vuelve a ser vertical (foto arriba, texto abajo) */
+    .creadores-unico-bloque {
+        flex-direction: column;
+    }
+    
+    .creador-img {
+        border-right: none;
+        border-bottom: 4px solid #e5e5d7;
+    }
+    
+    .creador-info {
+        padding: 30px;
+    }
+}
+
+/* =========================================
+   7. REDES SOCIALES (Mismo estilo que Index)
+   ========================================= */
+.redes-freska {
+    background-color: #e6332a;
+    padding: 100px 20px;
+    text-align: center;
+    border-top: 5px solid #e5e5d7;
+}
+
+.redes-titulo {
+    font-family: 'Anton', 'Impact', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #e5e5d7;
+    margin-bottom: 50px;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.redes-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.redes-link-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e6332a; 
+    background-color: #e5e5d7;
+    padding: 15px 40px;
+    text-decoration: none;
+    border: 4px solid #e5e5d7;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.icono-social {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    transition: filter 0.2s;
+}
+
+.redes-link-icono:hover {
+    background-color: #e6332a;
+    color: #e5e5d7;
+    transform: translate(-5px, -5px);
+    box-shadow: 8px 8px 0px #e5e5d7; 
+}
+
+.redes-link-icono:hover .icono-social {
+    filter: brightness(0) invert(1); 
+}
+
+/* =========================================
+   8. FOOTER SIMPLE (Mismo estilo que Index)
+   ========================================= */
+.footer-simple {
+    background-color: #e6332a; 
+    color: #e5e5d7; 
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 4px solid #e5e5d7;
+}
+
+.footer-simple p {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* =========================================
+   9. REGLAS RESPONSIVE (TABLETS Y MÓVILES)
+   ========================================= */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 10px 15px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .logo-sticker {
+        height: 50px;
+        margin: 0;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        margin: 0;
+        font-size: 1.2rem;
+        padding: 2px 5px;
+    }
+
+    .hero-nosotros {
+        padding-top: 180px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .historia-corta, .seccion-creadores, .redes-freska {
+        padding: 60px 20px;
+    }
+
+    .bloque-manifiesto {
+        padding: 30px;
+    }
+
+    .creadores-grid {
+        gap: 30px;
+    }
+
+    .redes-contenedor {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .redes-link-icono {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links a {
+        font-size: 1rem; 
+    }
+}

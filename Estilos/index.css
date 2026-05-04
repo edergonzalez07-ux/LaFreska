@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&family=Space+Mono&display=swap');
 
 /* =========================================
-   1. GLOBALES (100% BITONO)
+   1. GLOBALES
    ========================================= */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Bahnschrift', 'Inter', sans-serif;
-    background-color: #e6332a; /* ROJO PREDOMINANTE */
-    color: #e5e5d7; /* BLANCO CREMA */
+    background-color: #e6332a;
+    color: #e5e5d7;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -31,10 +31,10 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
     justify-content: space-between;
     align-items: center;
     padding: 10px 50px;
-    background-color: #e6332a; /* ROJO */
+    background-color: rgba(230, 51, 42, 0.9);
     z-index: 1000;
     box-sizing: border-box;
-    border-bottom: 4px solid #e5e5d7; /* LÍNEA CREMA */
+    border-bottom: 4px solid #e5e5d7; 
 }
 
 .logo-link {
@@ -52,6 +52,11 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
 
 .logo-sticker:hover {
     transform: scale(1.1) rotate(-2deg);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
@@ -91,6 +96,7 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
     color: #e5e5d7;
     animation: parpadeo 0.2s infinite;
     text-align: center;
+    padding: 0 20px;
 }
 
 @keyframes parpadeo {
@@ -107,19 +113,19 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
    4. HERO (BAÑADO EN ROJO)
    ========================================= */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
-    /* FILTRO ROJO SOBRE LA IMAGEN */
+    padding: 100px 20px 40px; /* Padding superior para que no lo tape el menú */
     background: linear-gradient(rgba(230, 51, 42, 0.7), rgba(230, 51, 42, 0.9)), url('/LaFreska/Imagenes/pizza-inicial.png');
     background-size: cover;
     background-position: center;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .titular-bestia {
@@ -128,7 +134,7 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
     margin-bottom: 20px;
     color: #e5e5d7;
     z-index: 2;
-    text-shadow: 4px 4px 0px #e6332a; /* Sombra sólida roja */
+    text-shadow: 4px 4px 0px #e6332a;
 }
 
 .subtitulo {
@@ -184,7 +190,7 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
    ========================================= */
 .cinta-policial {
     width: 100%;
-    background-color: #e5e5d7; /* CREMA */
+    background-color: #e5e5d7; 
     overflow: hidden;
     padding: 15px 0;
     transform: rotate(-2deg);
@@ -205,7 +211,7 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
 
 .cinta-texto span {
     font-size: 3rem;
-    color: #e6332a; /* ROJO */
+    color: #e6332a; 
     font-family: 'Anton', 'Impact', sans-serif;
     text-transform: uppercase;
     padding-right: 20px;
@@ -227,6 +233,8 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-top: 6px solid #e5e5d7;
+    border-bottom: 6px solid #e5e5d7;
 }
 
 .contador-box h2 {
@@ -265,7 +273,7 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
 }
 
 /* =========================================
-   7. MANIFIESTO
+   7. MANIFIESTO Y GALERÍA
    ========================================= */
 .manifiesto {
     position: relative;
@@ -285,7 +293,6 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
     left: 0;
     width: 100%;
     height: 100%;
-    /* FILTRO ROJO EXTREMO SOBRE LA IMAGEN */
     background: linear-gradient(rgba(230, 51, 42, 0.85), rgba(230, 51, 42, 0.95)), url('/LaFreska/Imagenes/lafreskainicio.jpg');
     background-size: cover;
     background-position: center;
@@ -323,12 +330,60 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
     letter-spacing: 1px;
 }
 
+.galeria-evidencias {
+    background-color: #e6332a;
+    padding: 0;
+    overflow: hidden;
+}
+
+.galeria-grid-freska {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0; 
+}
+
+.evidencia-item {
+    position: relative;
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+    border: 2px solid #e6332a;
+}
+
+.evidencia-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.2); 
+    opacity: 0.9;
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), filter 0.5s ease, opacity 0.5s ease;
+}
+
+.evidencia-item:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0) sepia(1) hue-rotate(-50deg) saturate(5); 
+    opacity: 1;
+}
+
+.label-evidencia {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #e5e5d7;
+    color: #e6332a;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    font-weight: bold;
+    z-index: 5;
+    pointer-events: none;
+}
+
 /* =========================================
    8. TRÍPTICO ELABORACIÓN
    ========================================= */
 .triptico-elaboracion {
     padding: 120px 20px;
-    background-color: #e5e5d7; /* FONDO CREMA */
+    background-color: #e5e5d7;
     color: #e6332a;
 }
 
@@ -396,132 +451,137 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
 }
 
 /* =========================================
-   9. INSTRUCCIONES
-   ========================================= */
-.instrucciones {
-    padding: 100px 20px;
-    background-color: #e6332a;
-    text-align: center;
-}
-
-.titulo-seccion {
-    font-size: 3.5rem;
-    color: #e5e5d7;
-}
-
-.pasos-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 50px auto 0;
-    flex-wrap: wrap;
-}
-
-.paso-card {
-    flex: 1;
-    min-width: 280px;
-    background: #e5e5d7; /* CARTA CREMA */
-    padding: 40px;
-    border: 4px solid #e5e5d7;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.paso-card:hover {
-    transform: translateY(-10px);
-    border: 4px solid #e5e5d7;
-}
-
-.paso-numero {
-    font-size: 5rem;
-    color: #e6332a;
-    line-height: 1;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.paso-contenido h3 {
-    font-size: 2.5rem;
-    color: #e6332a;
-    margin: 10px 0;
-}
-
-.paso-contenido p {
-    font-family: 'Bahnschrift', sans-serif;
-    font-size: 1.2rem;
-    color: #e6332a;
-    line-height: 1.4;
-}
-
-/* =========================================
    10. FOOTER / MAPA
    ========================================= */
 .footer-mapa {
-    padding: 80px 20px 24px;
+    padding: 80px 20px 24px; 
     background-color: #e6332a;
     text-align: center;
     border-top: 5px solid #e5e5d7;
 }
 
-.mensaje-reto .cama {
-    font-size: 1.9rem;
+.contenedor-mapa {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 40px auto;
+    overflow: hidden;
+    border: 4px solid #e5e5d7;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.mapa-link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+}
+
+.mapa-imagen-fija {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(1) contrast(1.2) sepia(0.2); 
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), filter 0.3s ease;
+}
+
+.mapa-link:hover .mapa-imagen-fija {
+    transform: scale(1.05);
+    filter: grayscale(0) saturate(1.2); 
+}
+
+.overlay-click {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #e6332a;
     color: #e5e5d7;
-    margin-bottom: 0; 
+    font-family: 'Anton', sans-serif;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+    width: 80%;
+}
+
+.mapa-link:hover .overlay-click {
+    opacity: 1;
+}
+
+.mensaje-reto .cama {
+    color: #e5e5d7;
+    margin-bottom: 0;
 }
 
 .mensaje-reto .destacado {
     color: #e5e5d7;
     font-size: clamp(2.8rem, 9vw, 5.5rem);
-    display: block;
-    margin-top: 0; 
-    margin-bottom: 40px;
-}
-
-.btn-mapa {
-    background-color: #e5e5d7;
-    color: #e6332a;
-    font-size: 1.8rem;
-    padding: 12px 35px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s;
-    border: 3px solid #e5e5d7;
-}
-
-.btn-mapa:hover {
-    background-color: #e6332a;
-    color: #e5e5d7;
-}
-
-.mapa-placeholder {
-    margin-top: 30px;
-}
-
-.mapa-placeholder .tit {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #e5e5d7;
-}
-
-.mapa-placeholder .legal {
-    color: #e5e5d7;
-    margin-top: 20px;
-    font-size: 0.9rem;
+    margin-top: 0;
 }
 
 /* =========================================
-   11. RESPONSIVE MÓVIL
+   11. REDES SOCIALES
    ========================================= */
-@media (max-width: 768px) {
-    .navbar { padding: 15px 20px; }
-    .nav-links { display: none; }
-    .hero { background-attachment: scroll; }
-    .hero-btns { flex-direction: column; width: 100%; }
-    .btn-pecado, .btn-secundario { width: 100%; text-align: center; }
-    .triptico-grid { gap: 40px; }
-    .pasos-container { flex-direction: column; gap: 20px; }
-    .paso-numero { font-size: 4rem; }
+.redes-freska {
+    background-color: #e6332a;
+    padding: 100px 20px;
+    text-align: center;
+    border-top: 5px solid #e5e5d7;
+}
+
+.redes-titulo {
+    font-family: 'Anton', 'Impact', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #e5e5d7;
+    margin-bottom: 50px;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.redes-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.redes-link-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e6332a; 
+    background-color: #e5e5d7;
+    padding: 15px 40px;
+    text-decoration: none;
+    border: 4px solid #e5e5d7;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.icono-social {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    transition: filter 0.2s;
+}
+
+.redes-link-icono:hover {
+    background-color: #e6332a;
+    color: #e5e5d7;
+    transform: translate(-5px, -5px);
+    box-shadow: 8px 8px 0px #e5e5d7; 
+}
+
+.redes-link-icono:hover .icono-social {
+    filter: brightness(0) invert(1); 
 }
 
 /* =========================================
@@ -541,25 +601,22 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
     overflow: hidden;
 }
 
-.tapa-izq {
+.tapa-izq, .tapa-der {
     position: absolute;
     top: 0;
-    left: -50vw;
     width: 50vw;
     height: 100vh;
-    background-color: #e5e5d7; /* TAPA CREMA */
+    background-color: #e5e5d7;
     box-sizing: border-box; 
+}
+
+.tapa-izq {
+    left: -50vw;
     transition: left 0.4s cubic-bezier(0.8, 0, 0.2, 1);
 }
 
 .tapa-der {
-    position: absolute;
-    top: 0;
     right: -50vw;
-    width: 50vw;
-    height: 100vh;
-    background-color: #e5e5d7; /* TAPA CREMA */
-    box-sizing: border-box; 
     transition: right 0.4s cubic-bezier(0.8, 0, 0.2, 1);
 }
 
@@ -568,7 +625,7 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
     z-index: 2;
     font-family: 'Anton', 'Impact', sans-serif;
     font-size: clamp(3rem, 8vw, 6rem);
-    color: #e6332a; /* LETRAS ROJAS */
+    color: #e6332a;
     opacity: 0;
     transform: scale(0.5);
     transition: opacity 0.2s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -579,3 +636,124 @@ h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
 #transicion-caja.activado .tapa-izq { left: 0; }
 #transicion-caja.activado .tapa-der { right: 0; }
 #transicion-caja.activado .texto-impacto { opacity: 1; transform: scale(1); }
+
+
+/* =========================================
+   13. REGLAS RESPONSIVE (TABLETS Y MÓVILES)
+   ========================================= */
+@media (max-width: 900px) {
+    /* Navbar pasa a ser una columna comprimida, no desaparece */
+    .navbar {
+        padding: 10px 15px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .logo-sticker {
+        height: 50px;
+        margin: 0;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        margin: 0;
+        font-size: 1.2rem;
+        padding: 2px 5px;
+    }
+
+    .hero {
+        padding-top: 140px; 
+    }
+}
+
+@media (max-width: 768px) {
+    /* Reducción general de los paddings gigantes para móviles */
+    .contador-vicio, .triptico-elaboracion, .instrucciones, .redes-freska, .footer-mapa {
+        padding: 60px 20px;
+    }
+
+    .manifiesto {
+        padding: 80px 20px;
+    }
+
+    /* Ajuste de Hero y Botones */
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .btn-pecado, .btn-secundario {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* Ajuste de la cinta policial */
+    .cinta-texto span {
+        font-size: 2rem;
+    }
+
+    /* Ajuste de Grids (Fotos, Tríptico, Instrucciones) */
+    .galeria-grid-freska {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .triptico-grid {
+        gap: 40px;
+    }
+
+    .pasos-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .paso-numero {
+        font-size: 4rem;
+    }
+
+    /* Ajuste Redes Sociales */
+    .redes-contenedor {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .redes-link-icono {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .galeria-grid-freska {
+        grid-template-columns: 1fr; 
+    }
+    
+    .nav-links a {
+        font-size: 1rem; 
+    }
+}
+
+/* =========================================
+   12. FOOTER SIMPLE
+   ========================================= */
+.footer-simple {
+    background-color: #e6332a; 
+    color: #e5e5d7; 
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 4px solid #e5e5d7;
+}
+
+.footer-simple p {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}

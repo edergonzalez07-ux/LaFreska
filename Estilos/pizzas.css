@@ -1,10 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&family=Space+Mono&display=swap');
+
+/* =========================================
+   1. GLOBALES (100% BITONO)
+   ========================================= */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bahnschrift', 'Inter', sans-serif;
+    background-color: #e6332a;
+    color: #e5e5d7; 
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, .btn-pecado, .btn-mapa, .nav-item, .texto-flash {
+    font-family: 'Anton', 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
 a.logo {
     text-decoration: none;
 }
 
-/*ESTILOS EXCLUSIVOS - MENÚ DE PIZZAS*/
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #e6332a;
+    z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 4px solid #e5e5d7; 
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-sticker {
+    height: 65px; 
+    width: auto;
+    transition: transform 0.3s ease;
+    margin: 5px 10px 2px;
+}
+
+.logo-sticker:hover {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+.nav-links a {
+    color: #e5e5d7;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 5px 10px;
+}
+
+.nav-links a:hover {
+    background-color: #e5e5d7;
+    color: #e6332a;
+}
+
+/* =========================================
+   3. ESTILOS EXCLUSIVOS - MENÚ DE PIZZAS
+   ========================================= */
 .pagina-menu {
-    background-color: #050505;
+    background-color: #e6332a; 
     padding-top: 100px;
 }
 
@@ -22,7 +95,7 @@ a.logo {
 
 .titulo-menu {
     font-size: clamp(4rem, 10vw, 7rem);
-    color: #e5e5d7;
+    color: #e5e5d7; 
     margin-bottom: 10px;
     line-height: 0.9;
 }
@@ -30,8 +103,9 @@ a.logo {
 .subtitulo-menu {
     font-family: 'Space Mono', monospace;
     font-size: 1.2rem;
-    color: #e6332a;
+    color: #e5e5d7; 
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 .seccion-pizzas {
@@ -39,7 +113,7 @@ a.logo {
 }
 
 .cabecera-seccion {
-    border-bottom: 3px solid #333;
+    border-bottom: 4px solid #e5e5d7;
     padding-bottom: 15px;
     margin-bottom: 40px;
     display: flex;
@@ -55,13 +129,16 @@ a.logo {
     margin: 0;
 }
 
+/* EL EFECTO "ROTULADOR" PARA DESTACAR */
 .cabecera-seccion .titulo-rojo {
-    color: #e6332a;
+    color: #e5e5d7;
+    padding: 0 10px;
+    display: inline-block;
 }
 
 .cabecera-seccion span {
     font-family: 'Space Mono', monospace;
-    color: #888;
+    color: #e5e5d7;
     font-weight: bold;
 }
 
@@ -71,9 +148,10 @@ a.logo {
     gap: 30px;
 }
 
+/* CARTA DE PIZZA (INVERTIDA A CREMA MACIZO) */
 .tarjeta-pizza {
-    background-color: #111;
-    border: 2px solid #222;
+    background-color: #e5e5d7; 
+    border: 4px solid #e5e5d7; 
     padding: 30px;
     position: relative;
     transition: transform 0.3s, border-color 0.3s;
@@ -83,27 +161,31 @@ a.logo {
 
 .tarjeta-pizza:hover {
     transform: translateY(-5px);
-    border-color: #e6332a;
-    background-color: #161616;
+    border-color: #e5e5d7;
+    background-color: #e5e5d7;
 }
 
+/* BADGES (ETIQUETAS) */
 .badge {
     position: absolute;
     top: -15px;
     left: 20px;
     background-color: #e6332a;
-    color: #000;
+    color: #e5e5d7; 
     font-family: 'Anton', sans-serif;
     padding: 5px 15px;
     font-size: 1.2rem;
     letter-spacing: 1px;
-    box-shadow: 4px 4px 0px rgba(229, 229, 215, 0.2);
+    border: 2px solid #e5e5d7;
+    box-shadow: 4px 4px 0px #e6332a;
+    z-index: 5;
 }
 
 .badge-especial {
     background-color: #e5e5d7;
-    color: #000;
-    box-shadow: 4px 4px 0px rgba(230, 51, 42, 0.5);
+    color: #e6332a;
+    border: 2px solid #e6332a;
+    box-shadow: 4px 4px 0px #e6332a;
 }
 
 .pizza-header {
@@ -116,7 +198,7 @@ a.logo {
 
 .pizza-nombre {
     font-size: 2.2rem;
-    color: #e5e5d7;
+    color: #e6332a; 
     margin: 0;
     line-height: 1.1;
 }
@@ -131,7 +213,8 @@ a.logo {
 
 .pizza-ingredientes {
     font-size: 1.1rem;
-    color: #aaa;
+    color: #e6332a; 
+    font-weight: bold;
     line-height: 1.5;
     margin-bottom: 20px;
     flex-grow: 1;
@@ -140,21 +223,21 @@ a.logo {
 .pizza-alergenos {
     font-family: 'Space Mono', monospace;
     font-size: 0.75rem;
-    color: #555;
+    color: #e6332a; 
     text-transform: uppercase;
     margin: 0;
-    border-top: 1px dashed #333;
+    border-top: 2px dashed #e6332a; 
     padding-top: 15px;
 }
 
-/* IMÁGENES DE LAS PIZZAS (EFECTO CÁMARA DE SEGURIDAD)*/
+/* IMÁGENES DE LAS PIZZAS (CON FILTRO DE MARCA)*/
 .pizza-imagen {
     width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    border: 2px solid #333;
+    border: 4px solid #e6332a;
     margin-bottom: 20px;
-    background-color: #1a1a1a;
+    background-color: #e6332a;
     margin-top: 10px;
 }
 
@@ -162,13 +245,13 @@ a.logo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(1) contrast(1.2) brightness(0.8);
+    filter: grayscale(1) contrast(1.2); 
     transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .tarjeta-pizza:hover .pizza-imagen img {
     transform: scale(1.05);
-    filter: grayscale(0) contrast(1.1) brightness(1);
+    filter: grayscale(0) contrast(1.2);
 }
 
 /*RESPONSIVE MÓVIL Y TABLET (EL PECADO)*/
@@ -241,3 +324,112 @@ a.logo {
     }
 }
 
+/* =========================================
+   4. REDES SOCIALES (CON LOGOS)
+   ========================================= */
+.redes-freska {
+    background-color: #e6332a;
+    padding: 100px 20px;
+    text-align: center;
+    border-top: 5px solid #e5e5d7; 
+}
+
+.redes-titulo {
+    font-family: 'Anton', 'Impact', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #e5e5d7;
+    margin-bottom: 50px;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.redes-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.redes-link-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e6332a; 
+    background-color: #e5e5d7;
+    padding: 15px 40px;
+    text-decoration: none;
+    border: 4px solid #e5e5d7;
+    transition: all 0.2s ease-in-out;
+}
+
+.icono-social {
+    width: 35px; 
+    height: 35px;
+    object-fit: contain;
+    transition: filter 0.2s;
+}
+
+.redes-link-icono:hover {
+    background-color: #e6332a; 
+    color: #e5e5d7;
+    transform: translate(-5px, -5px);
+    box-shadow: 8px 8px 0px #e5e5d7;
+}
+
+.redes-link-icono:hover .icono-social {
+    filter: brightness(0) invert(1); 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .redes-freska {
+        padding: 60px 20px;
+    }
+    .redes-contenedor {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .redes-link-icono {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ... Tu CSS anterior ... */
+
+.pizza-precio {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e6332a;
+    white-space: nowrap;
+}
+
+/* NUEVAS REGLAS PARA INTEGRAR LAS PORCIONES */
+.precios-grupo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.pizza-precio-porcion {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #e5e5d7;
+    background-color: #e6332a;
+    padding: 2px 8px;
+    white-space: nowrap;
+    border: 2px solid #e6332a;
+    text-transform: uppercase;
+}
+
+.pizza-ingredientes {
+/* ... Resto de tu CSS ... */
